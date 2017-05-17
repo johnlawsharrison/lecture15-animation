@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.HashMap;
+
 /**
  * A basic custom view for drawing on.
  * @author Joel Ross
@@ -18,6 +20,7 @@ public class DrawingView extends View {
     private static final String TAG = "DrawingView";
 
     private int viewWidth, viewHeight; //size of the view
+
 
     private Bitmap bmp; //image to draw on
 
@@ -46,6 +49,8 @@ public class DrawingView extends View {
         //set up drawing variables ahead of time
         whitePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         whitePaint.setColor(Color.WHITE);
+
+
 
     }
 
@@ -84,6 +89,7 @@ public class DrawingView extends View {
     {
         super.onDraw(canvas); //make sure to have the parent do any drawing it is supposed to!
 
+        ball.cy += 3;
 
         canvas.drawColor(Color.rgb(51,10,111)); //purple out the background
 
@@ -97,4 +103,6 @@ public class DrawingView extends View {
         canvas.drawBitmap(bmp, 0, 0, null); //and then draw the BitMap onto the canvas.
         //Canvas bmc = new Canvas(bmp); //we can also make a canvas out of a Bitmap to draw on that (like fetching g2d from a BufferedImage) if we don't want to double-buffer
     }
+
+
 }
